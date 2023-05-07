@@ -29,7 +29,7 @@ Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit
 Man-in-the-middle attack is when the attack intercepts the communication between two parties, and can change the message before sending it to the other party, and can even pretend to be the other party.
 
 ### b)
-No, using TLS is not enough to protect against malware running on the client. TLS is used to encrypt the message between the client and the server, and authenticating each other. However, malware can still read the already decrypted malware on the user's computer, stealing credit card information that way.
+No, using TLS is not enough to protect against malware running on the client. TLS is used to encrypt the message between the client and the server, and authenticating each other. However, malware can still read the already decrypted message on the user's computer, stealing credit card information that way.
 
 ### c)
 This protocol is not secure, it is susceptible to replay attack, since the message {Pay Elvis £5} is encrypted using K_CS, which always stays the same, The next time A talks to B with another message and another nonce, the attacker can simply remove the actual message and replace it with {Pay Elvis £5}K_CS, and B wouldn't know that the message has been tampered with.
