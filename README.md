@@ -37,26 +37,29 @@ This protocol is not secure, it is susceptible to replay attack, since the messa
 ### d)
 It is possible for the attacker to learn M without knowing the private key of A.
 ![2](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/2.png?raw=true)
-C intercepts the initial message from A to B, finding out N_A, and editing it so that the signature of C is sent to B instead. Then B thinks C wants to talk to them, and send N_A, N_B, and its signature encrypted using the public key of C, where C can decrypt it using its private key, learn N_B, and send the same message to A, but this time encrypting it with A's public key. Then A thought B has replied, and sends the message encrypted using the hash of N_A, and N_B, which C has leart already. Then C can decrypt the message and learn M.
+C intercepts the initial message from A to B, finding out N_A, and editing it so that the signature of C is sent to B instead. Then B thinks C wants to talk to them, and send N_A, N_B, and its signature encrypted using the public key of C, where C can decrypt it using its private key, learn N_B, and send the same message to A, but this time encrypting it with A's public key. Then A thought B has replied, and sends the message encrypted using the hash of N_A, and N_B, which C has learnt already. Then C can decrypt the message and learn M.
 
 ## Question 3
 ### a)
-Cross-site scripting is when the attacker injects malicious code into a website, usually with a script tag in place where user can post public content, such as a social media post. When other users view the content of the website, the code will run on the user's browser, and can steal information from the user, and further spread the attack by posting the same code too.
+Cross-site scripting is when the attacker injects malicious code into a website, and when the website is visited, the malicious code will be run. There is two main types of XSS, the first type is reflected XSS, where the malicious code is reflected off the web server and only the user issuing the malicious request is affected. The second type is stored XSS, where the malicious code is stored on the web server, and anyone visiting the website will be affected. Which can be used to steal information from the user, or even spread the attack further.
+
 
 ### b)
-The four security weaknesses are:
-- The post isn't authenticated, the server code doesn't actually check the password when adding the message in a user's name, so anyone can posta message in anyone's name if they know their username.
-- The code doesn't preform any sanitization on SQL query using the user's input, so the attacker can inject SQL code into the query, and steal information from the database, or even delete the database.
-- The code doesn't preform any sanitization on the user's input, so the attacker can preform cross-site scripting attack by having a malicious message, and when other users view the message, the code will run on their browser, and can steal information from the user, and further spread the attack by posting the same code too.
-- The request is sent with a get request, where the parameters, including the user's password in plain text, are sent in the URL, which can be seen by anyone, and can be easily modified by the attacker.
+The four security weaknesses, ranked by most severe to least severe, are:
+1. XSS: The code doesn't preform any sanitization on the user's input, so the attacker can preform cross-site scripting attack by having a malicious message, and when other users view the message, the code will run on their browser, and can steal information from the user, and further spread the attack by posting the same code too.
+2. SQL injection: The code doesn't preform any sanitization on SQL query using the user's input, so the attacker can inject SQL code into the query, and steal information from the database, or even delete the database.
+3. Password stored in plain text: The request is sent with a get request, where the parameters, including the user's password in plain text, are sent in the URL, which can be seen by anyone, and can be easily modified by the attacker.
+4. No authentication: The post isn't authenticated, the server code doesn't actually check the password when adding the message in a user's name, so anyone can posta message in anyone's name if they know their username.
 
+The reason I ranked them this way is, with XSS attack, the attacker can run whatever code they want on unsuspecting users' browser, which with Javascript, the attacker can do a lot of dangerous things. Then the second is SQL injection, as it allows the attacker to do whatever they want in the server database. The third is password stored in plain text, as it exposes the user's password. The last one no authentication, it allows anyone to post as anyone, but in terms of damage done, this is the least significant. 
 
 ### c)
 The four fixes are:
-- Authenticate the user before adding the message, so that only the user can post a message in their name.
-- Use prepared statement, so that the SQL query is precompiled, and the user's input is treated as a parameter, and not part of the query.
-- Sanitize the user's input, so that the user can't inject malicious code into the website.
-- Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL.
+1. XSS: Sanitize the user's input, so that the user can't inject malicious code into the website.
+2. SQL injection: Use prepared statement, so that the SQL query is precompiled, and the user's input is treated as a parameter, and not part of the query.
+3. Password stored in plain text: Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL. 
+4. No authentication: Authenticate the user before adding the message, so that only the user can post a message in their name.
+
 
 # Checked by
 If you find these answers correct, you can submit a pull request to add your name here, to add to the credibility of the answers.
