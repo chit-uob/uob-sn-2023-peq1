@@ -8,3 +8,13 @@ In light of not having an official answer, I am hoping to make a collaborative e
 
 If you see any answer you don't agree on, please submit a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to correct it, explaining why you think it is wrong. Or you can also contact me on Discord. Feel free to submit pull requests to improve the answers too.
 
+## Question 1
+### a)
+As block ciphers only work on fixed size blocks, padding works by adding extra bits to the end of the message to make it a multiple of the block size. One method of padding is PKCS, which writes 01 if there is one byte left, 0202 if there are two bytes left, and so on. So that when decrypting, the receiver can check the last byte, and remove the padding accordingly.
+
+### b)
+For full disk encryption in AES, assuming that we don't have to frequently encrypt or decrypt some parts of the disk, I would use CBC mode, as CTR mode is susceptible to known plain text attack, where if the attacker knows the plain text and encrypted plain text for a part of the disk, they can alter the ciphertext so that the plain text would decrypt to another plain text. Also, CBC provides message integrity, if one part of the disk is altered, the decryption of the next block would be wrong, and the receiver would know that the disk has been tampered with.
+
+### c)
+Yes, the attack can learn the key. This can be done by a Man-in-the-middle attack. The attacker can pretend to be A to B, and B to be A, and have a session key with both of them. When A first sends number to B, C intercepts it and create its own number, and use it to talk to B, then B also send its number to A, which C also intercepts it and use its own number to talk to A. Now C has a session key with both A and B, and can decrypt and encrypt messages between them.
+This can be illustrated by the following diagram:
