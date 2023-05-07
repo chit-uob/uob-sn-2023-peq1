@@ -17,7 +17,7 @@ For full disk encryption in AES, assuming that we don't have to frequently encry
 > I'm not sure on this one, one can also argue CTR is better because don't have to encrypt or decrypt the entire disk if only a small part is changed, and that it runs quicker because it can be done in parallel. 
 
 ### c)
-Yes, the attack can learn the key. This can be done by a Man-in-the-middle attack. The attacker can pretend to be A to B, and B to be A, and have a session key with both of them. When A first sends number to B, C intercepts it and create its own number, and use it to talk to B, then B also send its number to A, which C also intercepts it and use its own number to talk to A. Now C has a session key with both A and B, and can decrypt and encrypt messages between them.
+It is computationally impossible to learn the already shared key If A and B already performed the DH key exchange. However, the attacker can prevent this from happening and make it so that A and B thought they exchanged a key. This can be done by a Man-in-the-middle attack. The attacker can pretend to be A to B, and B to be A, and have a session key with both of them. When A first sends number to B, C intercepts it and create its own number, and use it to talk to B, then B also send its number to A, which C also intercepts it and use its own number to talk to A. Now C has a session key with both A and B, and can decrypt and encrypt messages between them.
 This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
