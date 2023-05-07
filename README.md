@@ -57,6 +57,10 @@ The four fixes are:
 - Sanitize the user's input, so that the user can't inject malicious code into the website.
 - Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL.
 
+# Checked by
+If you find these answers correct, you can submit a pull request to add your name here, to add to the credibility of the answers.
+- Chit
+
 # Plug
 If you find this helpful, please consider following my blog on [Chit's Programming Blog](https://blog.cpbprojects.me), where I post about my programming projects, and other things I find interesting.
 
