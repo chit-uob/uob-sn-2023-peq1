@@ -51,19 +51,20 @@ The four security weaknesses, ranked by most severe to least severe, are:
 3. Password stored in plain text: The request is sent with a get request, where the parameters, including the user's password in plain text, are sent in the URL, which can be seen by anyone, and can be easily modified by the attacker.
 4. No authentication: The post isn't authenticated, the server code doesn't actually check the password when adding the message in a user's name, so anyone can posta message in anyone's name if they know their username.
 
-The reason I ranked them this way is, with XSS attack, the attacker can run whatever code they want on unsuspecting users' browser, which with Javascript, the attacker can do a lot of dangerous things. Then the second is SQL injection, as it allows the attacker to do whatever they want in the server database. The third is password stored in plain text, as it exposes the user's password. The last one no authentication, it allows anyone to post as anyone, but in terms of damage done, this is the least significant. 
+The reason I ranked them this way is, with XSS attack, the attacker can run whatever code they want on unsuspecting users' browser, which with Javascript, the attacker can do a lot of dangerous things. Then the second is SQL injection, as it allows the attacker to do whatever they want in the server database. The third is password stored in plain text, as it exposes the user's password and increases the severity of the other vulnerabilities. The last one is authentication, it allows anyone to post as anyone, but in terms of damage done, this is the least significant. 
 
 ### c)
 The four fixes are:
 1. XSS: Sanitize the user's input, so that the user can't inject malicious code into the website.
 2. SQL injection: Use prepared statement, so that the SQL query is precompiled, and the user's input is treated as a parameter, and not part of the query.
-3. Password stored in plain text: Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL. 
+3. Password stored in plain text: Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL. Additionally, the password could be stored as a hash to increase security. 
 4. No authentication: Authenticate the user before adding the message, so that only the user can post a message in their name.
 
 
 # Checked by
 If you find these answers correct, you can submit a pull request to add your name here, to add to the credibility of the answers.
 - Chit
+- Tom
 
 # Plug
 If you find this helpful, please consider following my blog on [Chit's Programming Blog](https://blog.cpbprojects.me), where I post about my programming projects, and other things I find interesting.
