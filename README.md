@@ -40,7 +40,7 @@ C intercepts the initial message from A to B, finding out N_A, and editing it so
 
 ## Question 3
 ### a)
-Cross-site scripting is when the attacker injects malicious code into a website, usually with a <script> tag in place where user can post public content, such as a social media post. When other users view the content of the website, the code will run on the user's browser, and can steal information from the user, and further spread the attack by posting the same code too.
+Cross-site scripting is when the attacker injects malicious code into a website, usually with a script tag in place where user can post public content, such as a social media post. When other users view the content of the website, the code will run on the user's browser, and can steal information from the user, and further spread the attack by posting the same code too.
 
 ### b)
 The four security weaknesses are:
@@ -56,3 +56,8 @@ The four fixes are:
 - Use prepared statement, so that the SQL query is precompiled, and the user's input is treated as a parameter, and not part of the query.
 - Sanitize the user's input, so that the user can't inject malicious code into the website.
 - Use POST request instead of GET request, so that the parameters are sent in the body of the request, and not in the URL.
+
+# Plug
+If you find this helpful, please consider following my blog on [Chit's Programming Blog](https://blog.cpbprojects.me), where I post about my programming projects, and other things I find interesting.
+
+You can also give this repository a star ⭐, so that more people can find it.
