@@ -22,3 +22,18 @@ This can be illustrated by the following diagram:
 
 ### d)
 Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext, in our context, another account number. However, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
+
+## Question 2
+### a)
+Man-in-the-middle attack is when the attack intercepts the communication between two parties, and can change the message before sending it to the other party, and can even pretend to be the other party.
+
+### b)
+No, using TLS is not enough to protect against malware running on the client. TLS is used to encrypt the message between the client and the server, and authenticating each other. However, malware can still read the already decrypted malware on the user's computer, stealing credit card information that way.
+
+### c)
+This protocol is not secure, it is susceptible to replay attack, since the message {Pay Elvis £5} is encrypted using K_CS, which always stays the same, The next time A talks to B with another message and another nonce, the attacker can simply remove the actual message and replace it with {Pay Elvis £5}K_CS, and B wouldn't know that the message has been tampered with.
+
+### d)
+It is possible for the attacker to learn M without knowing the private key of A.
+![2](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/2.png?raw=true)
+C intercepts the initial message from A to B, finding out N_A, and editing it so that the signature of C is sent to B instead. Then B thinks C wants to talk to them, and send N_A, N_B, and its signature encrypted using the public key of C, where C can decrypt it using its private key, learn N_B, and send the same message to A, but this time encrypting it with A's public key. Then A thought B has replied, and sends the message encrypted using the hash of N_A, and N_B, which C has leart already. Then C can decrypt the message and learn M.
