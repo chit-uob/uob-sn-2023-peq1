@@ -24,7 +24,7 @@ This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
 ### d)
-Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext, in our context, another account number. However, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
+Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext. However, without the key, the attacker don't know what will the plaintext be after altering the ciphertext, and it is statisically impossible for the attacker to change the bits to make something readable. Also, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
 
 ## Question 2
 ### a)
@@ -51,7 +51,7 @@ Cross-site scripting is when the attacker injects malicious code into a website,
 The four security weaknesses, ranked by most severe to least severe, are:
 1. XSS: The code doesn't preform any sanitization on the user's input, so the attacker can preform cross-site scripting attack by having a malicious message, and when other users view the message, the code will run on their browser, and can steal information from the user, and further spread the attack by posting the same code too.
 2. SQL injection: The code doesn't preform any sanitization on SQL query using the user's input, so the attacker can inject SQL code into the query, and steal information from the database, or even delete the database.
-3. Password stored in plain text: The request is sent with a get request, where the parameters, including the user's password in plain text, are sent in the URL, which can be seen by anyone, and can be easily modified by the attacker.
+3. Password stored in plain text: The request is sent with a get request, where the parameters, including the user's password in plain text, are sent in the URL, which can be seen will appear in the browser history, be logged by the server and may be sent to third parties (eg. Google analytics), and can be easily modified by the attacker.
 4. No authentication: The post isn't authenticated, the server code doesn't actually check the password when adding the message in a user's name, so anyone can posta message in anyone's name if they know their username.
 
 The reason I ranked them this way is, with XSS attack, the attacker can run whatever code they want on unsuspecting users' browser, which with Javascript, the attacker can do a lot of dangerous things. Then the second is SQL injection, as it allows the attacker to do whatever they want in the server database. The third is password stored in plain text, as it exposes the user's password and increases the severity of the other vulnerabilities. The last one is authentication, it allows anyone to post as anyone, but in terms of damage done, this is the least significant. 
