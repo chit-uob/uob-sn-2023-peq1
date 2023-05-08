@@ -34,6 +34,7 @@ Man-in-the-middle attack is when the attack intercepts the communication between
 No, using TLS is not enough to protect against malware running on the client. TLS is used to encrypt the message between the client and the server, and authenticating each other. However, malware can still read the already decrypted message on the user's computer, stealing credit card information that way.
 
 ### c)
+![3](http://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/3.jpg?raw=true)
 This protocol is not secure, it is susceptible to replay attack, since the message {Pay Elvis £5} is encrypted using K_CS, which always stays the same, The next time A talks to B with another message and another nonce, the attacker can simply remove the actual message and replace it with {Pay Elvis £5}K_CS, and B wouldn't know that the message has been tampered with.
 
 ### d)
