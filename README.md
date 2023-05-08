@@ -24,7 +24,7 @@ This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
 ### d)
-Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext, in our context, another account number. However, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
+Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext. However, without the key, the attacker don't know what will the plaintext be after altering the ciphertext, and it is statisically impossible for the attacker to change the bits to make something readable. Also, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
 
 ## Question 2
 ### a)
