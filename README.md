@@ -1,7 +1,7 @@
 # Speculated answer for Past Exam Questions 1 for Security and Networking 2023
 link to questions: [https://canvas.bham.ac.uk/courses/65776/files/14520879](https://canvas.bham.ac.uk/courses/65776/files/14520879)
 
-link to Questions 2 (work in progress): [https://github.com/chit-uob/uob-sn-2023-peq2](https://github.com/chit-uob/uob-sn-2023-peq2)
+link to Questions 2: [https://github.com/chit-uob/uob-sn-2023-peq2](https://github.com/chit-uob/uob-sn-2023-peq2)
 
 # DISCLAIMER
 The following answer is **NOT** official. It is based solely on my understanding and interpretation of the lecture material. I am not responsible for any marks lost by following this answer.
