@@ -15,8 +15,7 @@ If you see any answer you don't agree on, please submit a [pull request](https:/
 As block ciphers only work on fixed size blocks, padding works by adding extra bits to the end of the message to make it a multiple of the block size. One method of padding is PKCS, which writes 01 if there is one byte left, 0202 if there are two bytes left, and so on. So that when decrypting, the receiver can check the last byte, and remove the padding accordingly.
 
 ### b)
-For full disk encryption in AES, assuming that we don't have to frequently encrypt or decrypt some parts of the disk, I would use CBC mode, as CTR mode is susceptible to known plain text attack, where if the attacker knows the plain text and encrypted plain text for a part of the disk, they can alter the ciphertext so that the plain text would decrypt to another plain text. Also, CBC provides message integrity, if one part of the disk is altered, the decryption of the next block would be wrong, and the receiver would know that the disk has been tampered with.
-> I'm not sure on this one, one can also argue CTR is better because don't have to encrypt or decrypt the entire disk if only a small part is changed, and that it runs quicker because it can be done in parallel. 
+For full disk encryption in AES, CTR is better because if we only change a part of the disk, we can decrypt or encrypt individual parts without affecting the rest of the blocks, but with CBC, every time we change something, we have to decrypt and encrypt everything again. CTR mode also runs quicker because it can be done in parallel. 
 
 ### c)
 It is computationally impossible to learn the already shared key If A and B already performed the DH key exchange. However, the attacker can prevent this from happening and make it so that A and B thought they exchanged a key. This can be done by a Man-in-the-middle attack. The attacker can pretend to be A to B, and B to be A, and have a session key with both of them. When A first sends number to B, C intercepts it and create its own number, and use it to talk to B, then B also send its number to A, which C also intercepts it and use its own number to talk to A. Now C has a session key with both A and B, and can decrypt and encrypt messages between them.
@@ -24,7 +23,7 @@ This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
 ### d)
-Since CBC encryption maps any 128 (or 256) bit block to another 128 (or 256) bit block, the attacker can change bits in the ciphertext to make it decrypt to another plaintext. However, without the key, the attacker don't know what will the plaintext be after altering the ciphertext, and it is statisically impossible for the attacker to change the bits to make something readable. Also, using CBC mode, if the first block of ciphertext is changed, the second block will decrypt into something different, and the receiver would know that the message has been tampered with.
+Yes, it is possible for the attacker to change the account number. The attack can edit the IV and make the first block decrypt to another block, hence changing the account number. And the rest of the ciphertext still decrypts as usual as the ciphertext was not changed, only the IV.
 
 ## Question 2
 ### a)
