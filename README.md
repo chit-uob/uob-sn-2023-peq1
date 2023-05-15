@@ -23,7 +23,7 @@ This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
 ### d)
-![5](http://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1d.png?raw=true)
+![5](http://github.com/kyubit-aria/uob-sn-2023-peq1/blob/main/img/1d.png?raw=true)
 
 ## Question 2
 ### a)
