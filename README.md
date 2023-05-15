@@ -23,8 +23,7 @@ This can be illustrated by the following diagram:
 ![1](https://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1.png?raw=true)
 
 ### d)
-Yes, it is possible for the attacker to change the account number. The attack can edit the IV and make the first block decrypt to another block, hence changing the account number. And the rest of the ciphertext still decrypts as usual as the ciphertext was not changed, only the IV.
-![5](http://github.com/kyubit-aria/uob-sn-2023-peq1/blob/main/img/1d.png?raw=true)
+![5](http://github.com/chit-uob/uob-sn-2023-peq1/blob/main/img/1d.png?raw=true)
 
 ## Question 2
 ### a)
